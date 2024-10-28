@@ -1,0 +1,57 @@
+@use "variables" as *;
+
+.table-wrapper {
+  height: 80vh;
+  width: 100%;
+  overflow: auto;
+  border: 1px solid $border-color;
+}
+
+.table {
+  margin: 0;
+  table-layout: auto;
+
+  td {
+    white-space: nowrap;
+  }
+
+  thead th {
+    position: sticky;
+    top: 0;
+    background-color: $thead-bg-color;
+    z-index: 1;
+  }
+
+  tbody tr:nth-child(odd) {
+    background-color: $tbody-odd-bg-color;
+  }
+
+  .sortable {
+    padding-right: 25px;
+    cursor: pointer;
+
+    &::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      right: 5px;
+      border-left: 5px solid transparent;
+      border-right: 5px solid transparent;
+      border-bottom: 5px solid black;
+      transform: translateY(-50%);
+    }
+
+    &.active::after {
+      border-bottom: none;
+      border-top: 5px solid black;
+    }
+  }
+}
+
+@media (min-width: 1320px) {
+  .container {
+    max-width: 90%;
+  }
+}
+
+
